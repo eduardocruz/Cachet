@@ -13,7 +13,7 @@
     <div class="content-wrapper">
         <div class="row">
             <div class="col-sm-12">
-                @include('partials.dashboard.errors')
+                @include('dashboard.partials.errors')
                 <form name="EditComponentForm" class="form-vertical" role="form" action="/dashboard/components/{{ $component->id }}/edit" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
@@ -63,7 +63,7 @@
 
                     <div class="btn-group">
                         <button type="submit" class="btn btn-success">{{ trans('forms.save') }}</button>
-                        <a class="btn btn-default" href="{{ route('dashboard.components') }}">{{ trans('forms.cancel') }}</a>
+                        <a class="btn btn-default" href="{{ route('dashboard.components.index') }}">{{ trans('forms.cancel') }}</a>
                     </div>
                 </form>
             </div>

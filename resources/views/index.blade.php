@@ -3,14 +3,14 @@
 @section('content')
     @if($subscribersEnabled)
     <div class="pull-right">
-        <p><a class="btn btn-success btn-outline" href="{{ route('subscribe') }}">{{ trans('cachet.subscriber.button') }}</a></p>
+        <p><a class="btn btn-success btn-outline" href="{{ route('subscribe.subscribe') }}">{{ trans('cachet.subscriber.button') }}</a></p>
     </div>
     @endif
 
     <div class="clearfix"></div>
 
     <div class="section-messages">
-        @include('partials.dashboard.errors')
+        @include('dashboard.partials.errors')
     </div>
 
     @if($bannerImage = Setting::get('app_banner'))
@@ -55,6 +55,7 @@
     </div>
     @endif
 
+    @if($days_to_show > 0)
     <div class="section-timeline">
         <h1>{{ trans('cachet.incidents.past') }}</h1>
         @foreach($all_incidents as $date => $incidents)
@@ -80,4 +81,5 @@
             @endif
         </ul>
     </nav>
+    @endif
 @stop

@@ -27,11 +27,19 @@ class StatusPageRoutes
      */
     public function map(Registrar $router)
     {
-        $router->get('/', [
+        $router->group([
             'middleware' => 'app.hasSetting',
             'setting'    => 'app_name',
-            'as'         => 'status-page',
-            'uses'       => 'HomeController@showIndex',
-        ]);
+        ], function ($router) {
+            $router->get('/', [
+                'as'   => 'status-page',
+                'uses' => 'StatusPageController@showIndex',
+            ]);
+
+            $router->get('incident/{incident}', [
+                'as'   => 'incident',
+                'uses' => 'StatusPageController@showIncident',
+            ]);
+        });
     }
 }

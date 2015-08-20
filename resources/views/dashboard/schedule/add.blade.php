@@ -13,7 +13,7 @@
     <div class="content-wrapper">
         <div class="row">
             <div class="col-md-12">
-                @include('partials.dashboard.errors')
+                @include('dashboard.partials.errors')
                 <form class='form-vertical' name='ScheduleForm' role='form' method='POST' autocomplete="off">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="incident[visible]" value="1">
@@ -53,7 +53,7 @@
                     <div class="form-group">
                         <div class="btn-group">
                             <button type="submit" class="btn btn-success">{{ trans('forms.add') }}</button>
-                            <a class="btn btn-default" href="{{ route('dashboard.schedule') }}">{{ trans('forms.cancel') }}</a>
+                            <a class="btn btn-default" href="{{ route('dashboard.schedule.index') }}">{{ trans('forms.cancel') }}</a>
                         </div>
                     </div>
                 </form>
